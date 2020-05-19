@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel='stylesheet' href='https://agora.xtec.cat/nodes/wp-content/themes/reactor/library/css/foundation.min.css'
+    type='text/css' media='all' />
+    <link rel='stylesheet' href='styles.css' type='text/css' media='all' />
+
+</head>
+
+<body>
+
+  <div id="app">
+
+    <nav class="top-bar" data-topbar role="navigation">
+
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="index.html">
+              <img style="width:35px;padding:3px"
+                src="https://agora.xtec.cat/nodes/wp-content/uploads/usu135/2015/11/DHD-GZhX_400x400.png">&nbsp;&nbsp;Caixa
+              d'Eines </a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="#">Avisos i anuncis</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row main">
+      <div class="customizer small-6 large-4 columns">
+        <div class="row div-nt">
+          <div id="radioGroup">
+            <h5>Icona:</h5>
+
+            <div class="wrap" v-for="(item,index) in icones">
+              <input type="radio" name="icona" :value="item.icona" :id="item" v-model="icona">
+              <label :for="item"><img :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'"/></label>
+            </div>
+
+          </div>
+          <div>
+            Mida: <input class="input-nt-mida" v-model="mida_icona">
+          </div>
+        </div>
+        <h5>Títol</h5>
+        <input class="input-nt-full" v-model="titol">
+        <br><br>
+        <h5>Contingut</h5>
+        <textarea class="ta-contingut" v-model="contingut"></textarea>
+        <h5>Text enllaç</h5>
+        <input class="input-nt-full" v-model="more_text">
+        <br><br>
+        <h5>Enllaç</h5>
+        <input class="input-nt-full" v-model="more_link">
+        <br><br>
+
+      </div>
+
+
+      <!-- PREVIEW -->
+
+      <div class="small-6 large-8 columns">
+
+        <div class="row">
+          <div class="columns small-12 large-2">
+            <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'" />
+          </div>
+          <div class="columns small-12 large-10">
+            <h3>{{titol}}</h3>
+            <p>{{contingut}}</p>
+            <div v-if="more_text" style="text-align:right">
+            <a :href="more_link">{{more_text}}</a>
+          </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row div-nt">
+          <h5>Codi html</h5>
+          <textarea class="ta-html" id="codi-html">
+          <div class="row">
+              <div class="columns small-12 large-2">
+              <img src="https://img.icons8.com/color/{{mida_icona}}/000000/{{icona}}.png" />
+              </div>
+              <div class="columns small-12 large-10">
+                <h5>{{titol}}</h5>
+                <p>{{contingut}}</p>
+                <div style="text-align:right">
+                  <a href="{{more_link}}">{{more_text}}</a>
+                </div>
+              </div>
+          </div>
+          </textarea>
+          <div class="row">
+            <div class="large-3 columns">
+              <button class="small" onclick="copyCode()">Copia codi</button>
+            </div>
+            <div class="large-9 columns">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="utils.js"></script>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      mida_icona: 120,
+      icona: 'high-priority',
+      titol: 'Lorem Ipsum',
+      contingut: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas mauris justo, in aliquet tellus euismod id. Vestibulum vitae libero non orci aliquam finibus. In metus risus, egestas ac nibh in, molestie ultrices ex. Donec quis purus sed felis rutrum semper. Pellentesque fringilla auctor massa, eu venenatis sapien volutpat at. ',
+      more_text: '',
+      more_link: '',
+      icones: [
+      { icona: 'high-priority' },
+      { icona: 'information' },
+      { icona: 'planner' },
+      { icona: 'overtime' },
+      { icona: 'leave' },
+      { icona: 'task' },
+      { icona: 'expired' },
+      { icona: 'complaint' },
+      { icona: 'conference' },
+      { icona: 'people-working-together' },
+      { icona: 'job--v1' },
+      { icona: 'request-service' },
+      { icona: 'answers' },
+      { icona: 'books' },
+      { icona: 'approval--v1' },
+      { icona: 'guarantee' },
+    ]
+    }
+  })
+</script>
+

@@ -1,0 +1,58 @@
+
+
+.main {
+    margin-top: 1.2em;
+}
+.customizer {
+    background-color: #f2f2f2;
+}
+
+#radioGroup {
+    margin-bottom: 1em;
+}
+
+#radioGroup .wrap {
+    display: inline-block;
+}
+
+#radioGroup label {
+    display: block;
+    text-align: center;
+    margin: 0 0.2em;
+}
+
+#radioGroup input[type="radio"] {
+    display: block;
+    margin: 0.5em auto;
+}
+
+.div-nt {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.input-nt-mida {
+    font-size: 1em;
+    width: 50px;
+}
+
+.input-nt-full {
+    font-size: 1em;
+    width: 100%;
+}
+
+.ta-contingut {
+    width: 100%;
+    height: 200px;
+}
+
+.ta-html {
+    width: 100%;
+    height: 150px;
+    color: #a3a3a3;
+}
+
+.top-bar-section .left li {
+    font-size: 1.3em;
+}
