@@ -23,8 +23,8 @@
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li class="menu-text">Eines NODES</li>
                     <li><a href="index.html">Inici</a></li>
-                    <li class="active"><a href="banner.html">Avisos i anuncis</a></li>
-                    <li><a href="tables.html">Taules adaptatives</a></li>
+                    <li><a href="banner.html">Avisos i anuncis</a></li>
+                    <li class="active"><a href="tables.html">Taules adaptatives</a></li>
                 </ul>
             </div>
             <div class="top-bar-right">
@@ -45,31 +45,7 @@
 
                     <div class="card-section ">
 
-                        <h6>Icona</h6>
-                        <div id="radioGroup">
-                            <div class="wrap" v-for="(item,index) in icones">
-                                <input type="radio" name="icona" :value="item.icona" :id="item" v-model="icona">
-                                <label :for="item"><img
-                                        :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" /></label>
-                            </div>
-                        </div>
-                        <p>Mida</p>
-                        <input class="input-nt-mida" v-model="mida_icona">
-                        <br><br>
-
-                        <h5>Títol</h5>
-                        <input class="input-nt-full" v-model="titol">
-
-                        <br><br>
-                        <h5>Contingut</h5>
-                        <textarea class="ta-contingut" v-model="contingut"></textarea>
-                        <h5>Text enllaç</h5>
-                        <input class="input-nt-full" v-model="more_text">
-                        <br><br>
-                        <h5>Enllaç</h5>
-                        <input class="input-nt-full" v-model="more_link">
-                        <br><br>
-
+                       En desenvolupament
 
                     </div> <!-- End Card Section-->
                 </div>
@@ -84,18 +60,7 @@
                     </div>
 
                     <div class="card-section">
-                        <div class="grid-x">
-                            <div class="columns cell small-12 large-2">
-                                <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'" />
-                            </div>
-                            <div class="columns cell small-12 large-10">
-                                <h3>{{titol}}</h3>
-                                <p>{{contingut}}</p>
-                                <div v-if="more_text" style="text-align:right">
-                                    <a :href="more_link">{{more_text}}</a>
-                                </div>
-                            </div>
-                        </div>
+                        En desenvolupament
                     </div>
                 </div>
 
@@ -108,18 +73,9 @@
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
                                 <textarea class="ta-html" id="codi-html">
-                                    <div class="row">
-                                        <div class="columns small-12 large-2">
-                                        <img src="https://img.icons8.com/color/{{mida_icona}}/000000/{{icona}}.png" />
-                                        </div>
-                                        <div class="columns small-12 large-10">
-                                          <h5>{{titol}}</h5>
-                                          <p>{{contingut}}</p>
-                                          <div style="text-align:right">
-                                            <a href="{{more_link}}">{{more_text}}</a>
-                                          </div>
-                                        </div>
-                                    </div>
+                                    
+
+
                                     </textarea>
                                     <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
                                     

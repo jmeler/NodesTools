@@ -53,6 +53,14 @@
     color: #a3a3a3;
 }
 
-.top-bar-section .left li {
-    font-size: 1.3em;
+.top-bar, .top-bar ul {
+    background-color: #000000;
+}
+
+.menu-text{
+    color:white !important;
+}
+
+.top-bar a{
+    color:white !important;
 }
