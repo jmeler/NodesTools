@@ -64,3 +64,9 @@
 .top-bar a{
     color:white !important;
 }
+
+.cel-la {
+    min-width:18em;
+    min-height:5em;
+    margin-left:0.2em;
+}
