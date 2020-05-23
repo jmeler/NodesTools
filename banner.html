@@ -49,8 +49,8 @@
                         <h6>Icona</h6>
                         <div id="radioGroup">
                             <div class="wrap" v-for="(item,index) in icones">
-                                <input type="radio" name="icona" :value="item.icona" :id="item" v-model="icona">
-                                <label :for="item"><img
+                                <input style="display:none" type="radio" name="icona" :value="item.icona" :id="item.icona" v-model="icona">
+                                <label :for="item.icona"><img
                                         :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" /></label>
                             </div>
                         </div>
@@ -171,6 +171,9 @@
                         icona: 'task'
                     },
                     {
+                        icona: 'task-completed'
+                    },
+                    {
                         icona: 'expired'
                     },
                     {
@@ -189,7 +192,16 @@
                         icona: 'request-service'
                     },
                     {
+                        icona: 'documents'
+                    },
+                    {
+                        icona: 'brief'
+                    },
+                    {
                         icona: 'answers'
+                    },
+                    {
+                        icona: 'questions'
                     },
                     {
                         icona: 'books'
@@ -200,6 +212,19 @@
                     {
                         icona: 'guarantee'
                     },
+                    {
+                        icona: 'communication'
+                    },
+                    {
+                        icona: 'trust'
+                    },
+                    {
+                        icona: 'video-conference'
+                    },
+                    {
+                        icona: 'collectibles'
+                    },
+                    
                 ]
             }
         })
