@@ -70,3 +70,62 @@
     min-height:5em;
     margin-left:0.2em;
 }
+div.color{
+    width:2em;
+    height:2em;
+    float: left;
+}
+
+.icons {
+    padding: 5px;
+    width: 300px;
+}
+
+.icons ul {
+      list-style-type: none;
+      padding: 5px;
+      margin: -1px 0 0;
+      display: none;
+      border: 1px solid #000;
+    }
+.icons li {
+      display: inline-block;
+    }
+    
+.icons     a {
+      display: inline-block;
+      overflow: hidden;
+      text-decoration: none;
+      border: 1px solid;
+      padding: 5px;
+      color: #777;
+      position: relative;
+
+      &.open {
+        border-bottom-color: #fff;
+        color: #000;
+      } 
+
+      .icons .arr {
+        float: right;
+      }
+    }
+    .visuallyhidden {
+      display: none;
+    }
+    label {
+      display: inline-block;
+      padding: 4px;
+      cursor: pointer;
+      color: #777;
+      border: 1px solid transparent;
+      &:hover {
+        color: #000;
+      }
+    }
+    :checked + label {
+       color: #000;
+       border-color: #000;
+     }
+  }
+  

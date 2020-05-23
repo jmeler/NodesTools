@@ -1,0 +1,1071 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eines Nodes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel='stylesheet' href='styles.css' type='text/css' media='all' />
+    <link rel="stylesheet" id="dashicons-css" href="https://agora.xtec.cat/nodes/wp-includes/css/dashicons.min.css"
+        type="text/css" media="all">
+
+    <style>
+        input[type="radio"]{
+            display:none !important;
+        }
+        #radioGroup label {
+            display: inherit;
+        }
+
+
+    </style>
+
+    <script src="utils.js"></script>
+    <!--<script src="
+    https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.accordion.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.keyboard.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li class="menu-text">Eines NODES</li>
+                    <li><a href="index.html">Inici</a></li>
+                    <li><a href="banner.html">Avisos i anuncis</a></li>
+                    <li class="active"><a href="simple-button.html">Botó</a></li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu">
+                    <li><a target="_blank" href="https://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1721">Fòrum
+                            de suport</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="grid-x grid-margin-x grid-padding-x">
+            <div class="cell medium-4 large-4">
+
+                <div class="card">
+                    <div class="card-divider">
+                        <h5>1. Composició</h5>
+                    </div>
+
+                    <div class="card-section ">
+
+                        <h5>Tria la teva paleta Nodes</h5>
+                        <div id="radioGroup">
+                            <div class="wrap" v-for="(item,index) in colors">
+                                <input type="radio" :id="item.palette.name" name="sel_palette"
+                                    :value="item.palette.name" v-model="sel_palette">
+                                <label :for="item.palette.name">
+                                    <div class="color" :style="'background-color:' + item.palette.color1 + ';'"></div>
+                                    <div class="color" :style="'background-color:' + item.palette.color2 + ';'"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <h5>Color del botó</h5>
+                        <div id="radioGroup">
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color1" id="color-1" v-model="set_color">
+                                <label for="color-1"><div class="color" :style="'background-color:'+color1+';'"></div></label>
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color1a" id="color-1a" v-model="set_color">
+                                <label for="color-1a"><div class="color" :style="'background-color:'+color1a+';'"></div>
+                                </label>
+                            </div>
+
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color2" id="color-2" v-model="set_color">
+                                <label for="color-2"><div class="color" :style="'background-color:'+color2+';'"></div>
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color2a" id="color-2a" v-model="set_color">
+                                <label for="color-2a"><div class="color" :style="'background-color:'+color2a+';'"></div>
+                                </label>
+                            </div>
+
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="grey" id="color-grey" v-model="set_color">
+                                <label for="color-grey"><div class="color" style="background-color:#767676;"></div>
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="grey-2" id="color-grey2"
+                                    v-model="set_color">
+                                <label for="color-grey2"><div class="color" style="background-color:#9e9e9e;"></div>
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color1w" id="color-1w" v-model="set_color">
+                                <label for="color-1w"><div class="color" :style="'background-color:white;border:4px solid '+color1+';'"></div>
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" name="set_color" value="color2w" id="color-2w" v-model="set_color">
+                                <label for="color-2w"><div class="color" :style="'background-color:white;border:4px solid '+color2+';'"></div>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <h5>Tipus de botó</h5>
+                        <div id="radioGroup">
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="type" value="only-text" id="type-nt" v-model="type">
+                                <label for="type-nt"> Només text
+                                </label>
+                            </div>
+
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="type" value="text-icon" id="type-it" v-model="type">
+                                <label for="type-it"> Icona i text
+                                </label>
+                            </div>
+
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="type" value="only-icon" id="type-ni" v-model="type">
+                                <label for="type-ni"> Només icona
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <h5>Mida del botó</h5>
+                        <div id="radioGroup">
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="mida" value="small" id="mida-s" v-model="mida">
+                                <label for="mida-s"> Petit
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="mida" value="normal" id="mida-n" v-model="mida">
+                                <label for="mida-n"> Normal
+                                </label>
+                            </div>
+                            <div class="wrap">
+                                <input style="display:none" type="radio" name="mida" value="large" id="mida-g" v-model="mida">
+                                <label for="mida-g"> Gran
+                                </label>
+                            </div>
+                        </div>
+
+                        <div v-if="type!='only-icon'">
+                            <h5>Text del botó</h5>
+                            <input class="input-nt-full" v-model="btn_text">
+                            <br><br>
+                            <h5>Enllaç</h5>
+                            <input class="input-nt-full" v-model="btn_url">
+                            <br><br>
+                        </div>
+
+                        <div v-show="type!='only-text'">
+                            <h5>Icona</h5>
+
+                            <fieldset class="icons">
+                                <a href="#select"><span class="arr dashicons dashicons-arrow-down"></span> <span
+                                        class="def">&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+
+                                <ul id="select">
+                                    <li v-for="icona in icones">
+                                        <input type="radio" class="visuallyhidden" name="icon" :value="icona.name"
+                                            :id="icona.name" v-model="btn_icona">
+                                        <label :for="icona.name">
+                                            <span :class="'dashicons dashicons-'+icona.name"></span>
+                                            <span class="visuallyhidden">{{icona.name}}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                        </div>
+
+
+
+                        <div v-if="type=='icon-text'">
+                            <h5>Alineació</h5>
+                            <div id="radioGroup">
+                                <div class="wrap">
+                                    <input type="radio" name="mida" value="a-horizontal" id="a-h" v-model="align">
+                                    <label for="a-h"> Horitzontal
+                                    </label>
+                                </div>
+                                <div class="wrap">
+                                    <input type="radio" name="mida" value="a-vertical" id="a-v" v-model="align">
+                                    <label for="a-v"> Vertical
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- End Card Section-->
+                </div>
+
+            </div>
+
+            <div class="cell medium-8 large-8">
+                <div class="card">
+
+                    <div class="card-divider">
+                        <h5>2. Previsualització </h5>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="grid-x">
+                            <a v-if="type=='only-text'" :class="'button '+mida" :href="btn_url" target="_blank"
+                                rel="noopener noreferrer" :style="btn_style">{{btn_text}}</a>
+
+                            <a v-if="type=='only-icon'" :class="'button '+mida" :href="btn_url" target="_blank"
+                                rel="noopener noreferrer" :style="btn_style"><span :style="icon_style"
+                                    :class="'dashicons dashicons-'+btn_icona"></span></a>
+
+                            <a v-if="type=='text-icon'" :class="'button '+mida" :href="btn_url" target="_blank"
+                                rel="noopener noreferrer" :style="btn_style"><span :style="icon_style"
+                                    :class="'dashicons dashicons-'+btn_icona"></span>{{btn_text}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-divider">
+                        <h5>3. Codi HTML </h5>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="grid-x">
+                            <div class="columns cell small-12 large-12">
+
+                                <textarea v-if="btn_icona=='no-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer">{{btn_text}}</a>
+                                </textarea>
+
+                                <textarea v-else class="ta-html" id="codi-html"><a class="button {{mida}}" href="{{btn_url}}" style="{{btn_style}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span>{{btn_text}}</a>
+                                </textarea>
+
+                                <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mida_icona: 120,
+                type: 'only-text',
+                btn_text: 'Text del botó',
+                btn_url: 'https://',
+                btn_icona: 'no-icon',
+                align: 'a-horizontal',
+                mida: "normal",
+                set_color: 'color1',
+                sel_palette: 'blaus',
+                colors: [{
+                        palette: {
+                            name: 'blaus',
+                            color1: '#0eb1ff',
+                            color2: '#087eb6'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'blau-vermell',
+                            color1: '#ff3257',
+                            color2: '#4c86a6'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'groc-blau',
+                            color1: '#FFA00C',
+                            color2: '#3C7C80'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'groc-lila',
+                            color1: '#ffa00c',
+                            color2: '#B03BBA'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'groc-verd',
+                            color1: '#fea200',
+                            color2: '#0f6333'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'groc-vermell',
+                            color1: '#FCB535',
+                            color2: '#E04B35'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'verd-blau',
+                            color1: '#92AE01',
+                            color2: '#0988A9'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'rosa-gris',
+                            color1: '#ff3257',
+                            color2: '#6c6c6c'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'roses',
+                            color1: '#FF2189',
+                            color2: '#A41159'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'sienna',
+                            color1: '#CA5F5F',
+                            color2: '#763333'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'taronges',
+                            color1: '#FF4C00',
+                            color2: '#C42300'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'taronja-gris',
+                            color1: '#FF4C00',
+                            color2: '#7D7D7D'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'taronja-verd',
+                            color1: '#ff5a26',
+                            color2: '#1fa799'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'turqueses',
+                            color1: '#40C3C4',
+                            color2: '#2F5D5D'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'verd-marro',
+                            color1: '#00B36B',
+                            color2: '#752800'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'verd-rosa',
+                            color1: '#fc3b56',
+                            color2: '#2ca698'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'verds',
+                            color1: '#55CD00',
+                            color2: '#418000'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'vermell-taronja',
+                            color1: '#ff2a2a',
+                            color2: '#ff5a26'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'vermell-verd',
+                            color1: '#ff2a2a',
+                            color2: '#00854e'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'xocolata',
+                            color1: '#521A09',
+                            color2: '#923917'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'blaufosc-taronja',
+                            color1: '#ff5a26',
+                            color2: '#087eb6'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'lila-verd-clar',
+                            color1: '#92AE01',
+                            color2: '#5E3A73'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'bordeus',
+                            color1: '#B5196E',
+                            color2: '#770E4B'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'taronja-oliva',
+                            color1: '#EA6A00',
+                            color2: '#768703'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'lila-vermell',
+                            color1: '#9068be',
+                            color2: '#e62739'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'blaunegre-taronja',
+                            color1: '#3A5863',
+                            color2: '#D86E3E'
+                        }
+                    },
+
+                ],
+                icones: [{
+                        name: 'no-icon'
+                    },
+                    {
+                        name: 'menu'
+                    },
+                    {
+                        name: 'admin-site'
+                    },
+                    {
+                        name: 'dashboard'
+                    },
+                    {
+                        name: 'admin-post'
+                    },
+                    {
+                        name: 'admin-media'
+                    },
+                    {
+                        name: 'admin-links'
+                    },
+                    {
+                        name: 'admin-page'
+                    },
+                    {
+                        name: 'admin-comments'
+                    },
+                    {
+                        name: 'admin-appearance'
+                    },
+                    {
+                        name: 'admin-plugins'
+                    },
+                    {
+                        name: 'admin-users'
+                    },
+                    {
+                        name: 'admin-tools'
+                    },
+                    {
+                        name: 'admin-settings'
+                    },
+                    {
+                        name: 'admin-network'
+                    },
+                    {
+                        name: 'admin-home'
+                    },
+                    {
+                        name: 'admin-generic'
+                    },
+                    {
+                        name: 'admin-collapse'
+                    },
+                    {
+                        name: 'welcome-write-blog'
+                    },
+                    {
+                        name: 'welcome-add-page'
+                    },
+                    {
+                        name: 'welcome-view-site'
+                    },
+                    {
+                        name: 'welcome-widgets-menus'
+                    },
+                    {
+                        name: 'welcome-comments'
+                    },
+                    {
+                        name: 'welcome-learn-more'
+                    },
+                    {
+                        name: 'format-aside'
+                    },
+                    {
+                        name: 'format-image'
+                    },
+                    {
+                        name: 'format-gallery'
+                    },
+                    {
+                        name: 'format-video'
+                    },
+                    {
+                        name: 'format-status'
+                    },
+                    {
+                        name: 'format-quote'
+                    },
+                    {
+                        name: 'format-chat'
+                    },
+                    {
+                        name: 'format-audio'
+                    },
+                    {
+                        name: 'camera'
+                    },
+                    {
+                        name: 'images-alt'
+                    },
+                    {
+                        name: 'images-alt2'
+                    },
+                    {
+                        name: 'video-alt'
+                    },
+                    {
+                        name: 'video-alt2'
+                    },
+                    {
+                        name: 'video-alt3'
+                    },
+                    {
+                        name: 'image-crop'
+                    },
+                    {
+                        name: 'image-rotate-left'
+                    },
+                    {
+                        name: 'image-rotate-right'
+                    },
+                    {
+                        name: 'image-flip-vertical'
+                    },
+                    {
+                        name: 'image-flip-horizontal'
+                    },
+                    {
+                        name: 'undo'
+                    },
+                    {
+                        name: 'redo'
+                    },
+                    {
+                        name: 'editor-bold'
+                    },
+                    {
+                        name: 'editor-italic'
+                    },
+                    {
+                        name: 'editor-ul'
+                    },
+                    {
+                        name: 'editor-ol'
+                    },
+                    {
+                        name: 'editor-quote'
+                    },
+                    {
+                        name: 'editor-alignleft'
+                    },
+                    {
+                        name: 'editor-aligncenter'
+                    },
+                    {
+                        name: 'editor-alignright'
+                    },
+                    {
+                        name: 'editor-insertmore'
+                    },
+                    {
+                        name: 'editor-spellcheck'
+                    },
+                    {
+                        name: 'editor-distractionfree'
+                    },
+                    {
+                        name: 'editor-kitchensink'
+                    },
+                    {
+                        name: 'editor-underline'
+                    },
+                    {
+                        name: 'editor-justify'
+                    },
+                    {
+                        name: 'editor-textcolor'
+                    },
+                    {
+                        name: 'editor-paste-word'
+                    },
+                    {
+                        name: 'editor-paste-text'
+                    },
+                    {
+                        name: 'editor-removeformatting'
+                    },
+                    {
+                        name: 'editor-video'
+                    },
+                    {
+                        name: 'editor-customchar'
+                    },
+                    {
+                        name: 'editor-outdent'
+                    },
+                    {
+                        name: 'editor-indent'
+                    },
+                    {
+                        name: 'editor-help'
+                    },
+                    {
+                        name: 'editor-strikethrough'
+                    },
+                    {
+                        name: 'editor-unlink'
+                    },
+                    {
+                        name: 'editor-rtl'
+                    },
+                    {
+                        name: 'align-left'
+                    },
+                    {
+                        name: 'align-right'
+                    },
+                    {
+                        name: 'align-center'
+                    },
+                    {
+                        name: 'align-none'
+                    },
+                    {
+                        name: 'lock'
+                    },
+                    {
+                        name: 'calendar'
+                    },
+                    {
+                        name: 'visibility'
+                    },
+                    {
+                        name: 'post-status'
+                    },
+                    {
+                        name: 'edit'
+                    },
+                    {
+                        name: 'trash'
+                    },
+                    {
+                        name: 'arrow-up'
+                    },
+                    {
+                        name: 'arrow-down'
+                    },
+                    {
+                        name: 'arrow-right'
+                    },
+                    {
+                        name: 'arrow-left'
+                    },
+                    {
+                        name: 'arrow-up-alt'
+                    },
+                    {
+                        name: 'arrow-down-alt'
+                    },
+                    {
+                        name: 'arrow-right-alt'
+                    },
+                    {
+                        name: 'arrow-left-alt'
+                    },
+                    {
+                        name: 'arrow-up-alt2'
+                    },
+                    {
+                        name: 'arrow-down-alt2'
+                    },
+                    {
+                        name: 'arrow-right-alt2'
+                    },
+                    {
+                        name: 'arrow-left-alt2'
+                    },
+                    {
+                        name: 'sort'
+                    },
+                    {
+                        name: 'leftright'
+                    },
+                    {
+                        name: 'list-view'
+                    },
+                    {
+                        name: 'exerpt-view'
+                    },
+                    {
+                        name: 'share'
+                    },
+                    {
+                        name: 'share-alt'
+                    },
+                    {
+                        name: 'share-alt2'
+                    },
+                    {
+                        name: 'twitter'
+                    },
+                    {
+                        name: 'rss'
+                    },
+                    {
+                        name: 'facebook'
+                    },
+                    {
+                        name: 'facebook-alt'
+                    },
+                    {
+                        name: 'googleplus'
+                    },
+                    {
+                        name: 'networking'
+                    },
+                    {
+                        name: 'hammer'
+                    },
+                    {
+                        name: 'art'
+                    },
+                    {
+                        name: 'migrate'
+                    },
+                    {
+                        name: 'performance'
+                    },
+                    {
+                        name: 'wordpress'
+                    },
+                    {
+                        name: 'wordpress-alt'
+                    },
+                    {
+                        name: 'pressthis'
+                    },
+                    {
+                        name: 'update'
+                    },
+                    {
+                        name: 'screenoptions'
+                    },
+                    {
+                        name: 'info'
+                    },
+                    {
+                        name: 'cart'
+                    },
+                    {
+                        name: 'feedback'
+                    },
+                    {
+                        name: 'cloud'
+                    },
+                    {
+                        name: 'translation'
+                    },
+                    {
+                        name: 'tag'
+                    },
+                    {
+                        name: 'category'
+                    },
+                    {
+                        name: 'yes'
+                    },
+                    {
+                        name: 'no'
+                    },
+                    {
+                        name: 'no-alt'
+                    },
+                    {
+                        name: 'plus'
+                    },
+                    {
+                        name: 'minus'
+                    },
+                    {
+                        name: 'dismiss'
+                    },
+                    {
+                        name: 'marker'
+                    },
+                    {
+                        name: 'star-filled'
+                    },
+                    {
+                        name: 'star-half'
+                    },
+                    {
+                        name: 'star-empty'
+                    },
+                    {
+                        name: 'flag'
+                    },
+                    {
+                        name: 'location'
+                    },
+                    {
+                        name: 'location-alt'
+                    },
+                    {
+                        name: 'vault'
+                    },
+                    {
+                        name: 'shield'
+                    },
+                    {
+                        name: 'shield-alt'
+                    },
+                    {
+                        name: 'search'
+                    },
+                    {
+                        name: 'slides'
+                    },
+                    {
+                        name: 'analytics'
+                    },
+                    {
+                        name: 'chart-pie'
+                    },
+                    {
+                        name: 'chart-bar'
+                    },
+                    {
+                        name: 'chart-line'
+                    },
+                    {
+                        name: 'chart-area'
+                    },
+                    {
+                        name: 'groups'
+                    },
+                    {
+                        name: 'businessman'
+                    },
+                    {
+                        name: 'id'
+                    },
+                    {
+                        name: 'id-alt'
+                    },
+                    {
+                        name: 'products'
+                    },
+                    {
+                        name: 'awards'
+                    },
+                    {
+                        name: 'forms'
+                    },
+                    {
+                        name: 'portfolio'
+                    },
+                    {
+                        name: 'book'
+                    },
+                    {
+                        name: 'book-alt'
+                    },
+                    {
+                        name: 'download'
+                    },
+                    {
+                        name: 'upload'
+                    },
+                    {
+                        name: 'backup'
+                    },
+                    {
+                        name: 'lightbulb'
+                    },
+                    {
+                        name: 'smiley'
+                    },
+
+                ]
+            },
+            computed: {
+                color1: function () {
+                    var color = "";
+                    this.colors.forEach(function (element) {
+                        if (element.palette.name == this.sel_palette) {
+                            console.log(element.palette.color1);
+                            color = element.palette.color1;
+                        }
+                    }.bind(this));
+                    return color;
+                },
+                color1a: function () {
+                    return this.color1 + 'BF';
+                },
+                color1w: function () {
+                    return 'FFFFFF';
+                },
+                color2: function () {
+                    var color = "";
+                    this.colors.forEach(function (element) {
+                        if (element.palette.name == this.sel_palette) {
+                            color = element.palette.color2;
+                        }
+                    }.bind(this));
+                    return color;
+                },
+                color2a: function () {
+                    return this.color2 + 'BF';
+                },
+                color2w: function () {
+                    return 'FFFFFF';
+                },
+                btn_style: function () {
+                    
+                    class_btn = 'padding:1em;font-weight: 400;';
+
+                    switch (this.set_color) {
+                        
+                        case 'color1':
+                            class_btn = class_btn + 'color:white !important;background-color:' + this.color1;
+                            break;
+                        case 'color1a':
+                            class_btn = class_btn + 'color:white !important;background-color:' +this.color1a;
+                            break;
+                        case 'color2':
+                            class_btn = class_btn + 'color:white !important;background-color:' +this.color2;
+                            break;
+                        case 'color2a':
+                            class_btn = class_btn + 'color:white !important;background-color:' +
+                                this.color2a;
+                            break;
+                        case 'grey':
+                            class_btn = class_btn +'color:white !important;background-color:#767676';
+                            break;
+                        case 'grey-2':
+                            class_btn =  class_btn + 'color:white !important;background-color:#9e9e9e';
+                            break;
+                        case 'color1w':
+                            class_btn = class_btn + 'background-color:white;border:1px solid ' + this.color1 + ';color:' + this.color1;
+                            break;
+                        case 'color2w':
+                            class_btn = class_btn + 'background-color:white;border:1px solid' + this.color2 + ';color:' + this.color2;
+                            break;
+                        default:
+                            class_btn = "";
+                    }
+
+                    return class_btn;
+                },
+                icon_style: function () {
+                    switch (this.mida) {
+                        case 'small':
+                            class_icon =
+                            'margin-right:0.3em;font-size:1em;width:inherit;height:inherit;'; //font-size:1.2em;line-height:0.8;width:inherit;height:inherit;margin-right:0.5em';
+                            break;
+                        case 'normal':
+                            class_icon =
+                            'margin-right:0.3em;font-size:1.1em;width:inherit;height:inherit;'; //font-size:1.2em;line-height:0.8;width:inherit;height:inherit;margin-right:0.5em';
+                            break;
+                        case 'large':
+                            class_icon = 'margin-right:0.3em';
+                            break;
+
+                    }
+                    return class_icon;
+                }
+            }
+        })
+    </script>
+
+    <script>
+        $('.icons a').on('click', function (e) {
+            var a = $(this),
+                href = a.attr('href'),
+                arr = a.find('.arr');
+            $(href).toggle();
+            arr.toggleClass('dashicons-arrow-down').toggleClass('dashicons-arrow-up');
+            a.toggleClass('open');
+            e.preventDefault();
+        });
+        $('#select input').on('change', function (e) {
+            var def = $('.def'),
+                icon = this.value,
+                span = $('<span class="dashicons dashicons-' + icon + '"></span>');
+            def.html(span);
+            $('.icons a').click();
+        })
+    </script>
+
+
+</body>
+
+</html>
