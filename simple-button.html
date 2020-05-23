@@ -13,14 +13,13 @@
         type="text/css" media="all">
 
     <style>
-        input[type="radio"]{
-            display:none !important;
+        input[type="radio"] {
+            display: none !important;
         }
+
         #radioGroup label {
             display: inherit;
         }
-
-
     </style>
 
     <script src="utils.js"></script>
@@ -82,44 +81,55 @@
                         <div id="radioGroup">
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color1" id="color-1" v-model="set_color">
-                                <label for="color-1"><div class="color" :style="'background-color:'+color1+';'"></div></label>
+                                <label for="color-1">
+                                    <div class="color" :style="'background-color:'+color1+';'"></div>
+                                </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color1a" id="color-1a" v-model="set_color">
-                                <label for="color-1a"><div class="color" :style="'background-color:'+color1a+';'"></div>
+                                <label for="color-1a">
+                                    <div class="color" :style="'background-color:'+color1a+';'"></div>
                                 </label>
                             </div>
 
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color2" id="color-2" v-model="set_color">
-                                <label for="color-2"><div class="color" :style="'background-color:'+color2+';'"></div>
+                                <label for="color-2">
+                                    <div class="color" :style="'background-color:'+color2+';'"></div>
                                 </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color2a" id="color-2a" v-model="set_color">
-                                <label for="color-2a"><div class="color" :style="'background-color:'+color2a+';'"></div>
+                                <label for="color-2a">
+                                    <div class="color" :style="'background-color:'+color2a+';'"></div>
                                 </label>
                             </div>
 
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="grey" id="color-grey" v-model="set_color">
-                                <label for="color-grey"><div class="color" style="background-color:#767676;"></div>
+                                <label for="color-grey">
+                                    <div class="color" style="background-color:#767676;"></div>
                                 </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="grey-2" id="color-grey2"
                                     v-model="set_color">
-                                <label for="color-grey2"><div class="color" style="background-color:#9e9e9e;"></div>
+                                <label for="color-grey2">
+                                    <div class="color" style="background-color:#9e9e9e;"></div>
                                 </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color1w" id="color-1w" v-model="set_color">
-                                <label for="color-1w"><div class="color" :style="'background-color:white;border:4px solid '+color1+';'"></div>
+                                <label for="color-1w">
+                                    <div class="color" :style="'background-color:white;border:4px solid '+color1+';'">
+                                    </div>
                                 </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color2w" id="color-2w" v-model="set_color">
-                                <label for="color-2w"><div class="color" :style="'background-color:white;border:4px solid '+color2+';'"></div>
+                                <label for="color-2w">
+                                    <div class="color" :style="'background-color:white;border:4px solid '+color2+';'">
+                                    </div>
                                 </label>
                             </div>
 
@@ -128,19 +138,22 @@
                         <h5>Tipus de botó</h5>
                         <div id="radioGroup">
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="type" value="only-text" id="type-nt" v-model="type">
+                                <input style="display:none" type="radio" name="type" value="only-text" id="type-nt"
+                                    v-model="type">
                                 <label for="type-nt"> Només text
                                 </label>
                             </div>
 
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="type" value="text-icon" id="type-it" v-model="type">
+                                <input style="display:none" type="radio" name="type" value="text-icon" id="type-it"
+                                    v-model="type">
                                 <label for="type-it"> Icona i text
                                 </label>
                             </div>
 
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="type" value="only-icon" id="type-ni" v-model="type">
+                                <input style="display:none" type="radio" name="type" value="only-icon" id="type-ni"
+                                    v-model="type">
                                 <label for="type-ni"> Només icona
                                 </label>
                             </div>
@@ -150,34 +163,27 @@
                         <h5>Mida del botó</h5>
                         <div id="radioGroup">
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="mida" value="small" id="mida-s" v-model="mida">
+                                <input style="display:none" type="radio" name="mida" value="small" id="mida-s"
+                                    v-model="mida">
                                 <label for="mida-s"> Petit
                                 </label>
                             </div>
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="mida" value="normal" id="mida-n" v-model="mida">
+                                <input style="display:none" type="radio" name="mida" value="normal" id="mida-n"
+                                    v-model="mida">
                                 <label for="mida-n"> Normal
                                 </label>
                             </div>
                             <div class="wrap">
-                                <input style="display:none" type="radio" name="mida" value="large" id="mida-g" v-model="mida">
+                                <input style="display:none" type="radio" name="mida" value="large" id="mida-g"
+                                    v-model="mida">
                                 <label for="mida-g"> Gran
                                 </label>
                             </div>
                         </div>
 
-                        <div v-if="type!='only-icon'">
-                            <h5>Text del botó</h5>
-                            <input class="input-nt-full" v-model="btn_text">
-                            <br><br>
-                            <h5>Enllaç</h5>
-                            <input class="input-nt-full" v-model="btn_url">
-                            <br><br>
-                        </div>
-
                         <div v-show="type!='only-text'">
                             <h5>Icona</h5>
-
                             <fieldset class="icons">
                                 <a href="#select"><span class="arr dashicons dashicons-arrow-down"></span> <span
                                         class="def">&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
@@ -195,7 +201,14 @@
                             </fieldset>
                         </div>
 
-
+                        <div v-if="type!='only-icon'">
+                            <h5>Text del botó</h5>
+                            <input class="input-nt-full" v-model="btn_text">
+                            <br><br>
+                            <h5>Enllaç</h5>
+                            <input class="input-nt-full" v-model="btn_url">
+                            <br><br>
+                        </div>
 
                         <div v-if="type=='icon-text'">
                             <h5>Alineació</h5>
@@ -250,10 +263,13 @@
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
 
-                                <textarea v-if="btn_icona=='no-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer">{{btn_text}}</a>
+                                <textarea v-if="type=='only-text'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer">{{btn_text}}</a>
                                 </textarea>
 
-                                <textarea v-else class="ta-html" id="codi-html"><a class="button {{mida}}" href="{{btn_url}}" style="{{btn_style}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span>{{btn_text}}</a>
+                                <textarea v-if="type=='text-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" href="{{btn_url}}" style="{{btn_style}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span>{{btn_text}}</a>
+                                </textarea>
+
+                                <textarea v-if="type=='only-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span></a>
                                 </textarea>
 
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
@@ -284,7 +300,7 @@
                 type: 'only-text',
                 btn_text: 'Text del botó',
                 btn_url: 'https://',
-                btn_icona: 'no-icon',
+                btn_icona: 'admin-site',
                 align: 'a-horizontal',
                 mida: "normal",
                 set_color: 'color1',
@@ -473,14 +489,12 @@
                     },
 
                 ],
-                icones: [{
-                        name: 'no-icon'
+                icones: [
+                    {
+                        name: 'admin-site'
                     },
                     {
                         name: 'menu'
-                    },
-                    {
-                        name: 'admin-site'
                     },
                     {
                         name: 'dashboard'
@@ -989,35 +1003,40 @@
                     return 'FFFFFF';
                 },
                 btn_style: function () {
-                    
-                    class_btn = 'padding:1em;font-weight: 400;';
+
+                    class_btn = 'padding:1em;font-weight: 400;margin:0.1em;';
 
                     switch (this.set_color) {
-                        
+
                         case 'color1':
-                            class_btn = class_btn + 'color:white !important;background-color:' + this.color1;
+                            class_btn = class_btn + 'color:white !important;background-color:' + this
+                                .color1;
                             break;
                         case 'color1a':
-                            class_btn = class_btn + 'color:white !important;background-color:' +this.color1a;
+                            class_btn = class_btn + 'color:white !important;background-color:' + this
+                                .color1a;
                             break;
                         case 'color2':
-                            class_btn = class_btn + 'color:white !important;background-color:' +this.color2;
+                            class_btn = class_btn + 'color:white !important;background-color:' + this
+                                .color2;
                             break;
                         case 'color2a':
                             class_btn = class_btn + 'color:white !important;background-color:' +
                                 this.color2a;
                             break;
                         case 'grey':
-                            class_btn = class_btn +'color:white !important;background-color:#767676';
+                            class_btn = class_btn + 'color:white !important;background-color:#767676';
                             break;
                         case 'grey-2':
-                            class_btn =  class_btn + 'color:white !important;background-color:#9e9e9e';
+                            class_btn = class_btn + 'color:white !important;background-color:#9e9e9e';
                             break;
                         case 'color1w':
-                            class_btn = class_btn + 'background-color:white;border:1px solid ' + this.color1 + ';color:' + this.color1;
+                            class_btn = class_btn + 'background-color:white;border:1px solid ' + this
+                                .color1 + ';color:' + this.color1;
                             break;
                         case 'color2w':
-                            class_btn = class_btn + 'background-color:white;border:1px solid' + this.color2 + ';color:' + this.color2;
+                            class_btn = class_btn + 'background-color:white;border:1px solid' + this
+                                .color2 + ';color:' + this.color2;
                             break;
                         default:
                             class_btn = "";
@@ -1028,17 +1047,27 @@
                 icon_style: function () {
                     switch (this.mida) {
                         case 'small':
-                            class_icon =
-                            'margin-right:0.3em;font-size:1em;width:inherit;height:inherit;'; //font-size:1.2em;line-height:0.8;width:inherit;height:inherit;margin-right:0.5em';
+                            if (this.type == "only-icon") {
+                                class_icon = '';
+                            } else {
+                                class_icon =
+                                    'margin-right:0.3em;font-size:1em;width:inherit;height:inherit;';
+                            }
                             break;
                         case 'normal':
-                            class_icon =
-                            'margin-right:0.3em;font-size:1.1em;width:inherit;height:inherit;'; //font-size:1.2em;line-height:0.8;width:inherit;height:inherit;margin-right:0.5em';
+                            if (this.type == "only-icon") {
+                                class_icon = 'font-size:1.6em !important;width:inherit;height:inherit';
+                            } else {
+                                class_icon ='margin-right:0.3em;font-size:1.1em;width:inherit;height:inherit;';
+                            } 
                             break;
                         case 'large':
-                            class_icon = 'margin-right:0.3em';
+                            if (this.type == "only-icon") {
+                                class_icon = 'font-size:1.6em !important;width:inherit;height:inherit';
+                            } else {
+                                class_icon = 'margin-right:0.3em';
+                            }
                             break;
-
                     }
                     return class_icon;
                 }
