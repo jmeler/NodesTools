@@ -70,14 +70,23 @@
                         <p>O carrega algun dels exemples:</p>
 
                         <select v-model="taula_exemple" @change="select_taula_ex($event)">
-                            <option value="ex_taula_13">1x3</option>
-                            <option value="ex_taula_22">2x2</option>
-                            <option value="ex_taula_33">3x3</option>
-                            <option value="ex_taula_33_img">Imatges (3x3)</option>
-                            <option value="ex_taula_13_img_link">Imatges amb enllaç (1x3)</option>
-                            <option value="ex_taula_22_img_link">Imatges amb enllaç (2x2)</option>
-                            <option value="ex_taula_33_img_link">Imatges amb enllaç (3x3)</option>
+                            <option value="ex_tbl_13">1x3</option>
+                            <option value="ex_tbl_22">2x2</option>
+                            <option value="ex_tbl_33">3x3</option>
+                            <option value="ex_tbl_33_img">Imatges (3x3)</option>
+                            <option value="ex_tbl_13_img_link">Imatges amb enllaç (1x3)</option>
+                            <option value="ex_tbl_23_img_link">Imatges amb enllaç (2x3)</option>
+                            <option value="ex_tbl_33_img_link">Imatges amb enllaç (3x3)</option>
+                            <option value="ex_tbl_13_img_link_title">Imatges amb enllaç i títol (1x3)</option>
+                            <option value="ex_tbl_23_img_link_title">Imatges amb enllaç i títol (2x3)</option>
+                            <option value="ex_tbl_33_img_link_title">Imatges amb enllaç i títol (3x3)</option>
+                            <option value="ex_tbl_13_img_link_title_desc">Imatges amb enllaç, títol i descripció (1x3)</option>
+                            <option value="ex_tbl_23_img_link_title_desc">Imatges amb enllaç, títol i descripció (2x3)</option>
+                            <option value="ex_tbl_33_img_link_title_desc">Imatges amb enllaç, títol i descripció (3x3)</option>
                           </select>
+
+                        <input id="ck_centered" type="checkbox" v-model="centered"><label for="ck_centered">Contingut centrat</label>  
+                        <input id="ck_border" type="checkbox" v-model="border"><label for="ck_border">Amb vora</label>  
 
                         <button class="button primary " v-on:click="clean">Neteja</button>
 
@@ -128,8 +137,10 @@
             data: {
                 taula_html: '',
                 taula_exemple:'33',
+                centered:true,
+                border:false,
                 exemples:{
-ex_taula_13: '\<table style="width: 141px;">\
+ex_tbl_13: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -138,7 +149,7 @@ ex_taula_13: '\<table style="width: 141px;">\
 </tr>\n\
 </tbody>\n\
 </table>',
-ex_taula_22: '\<table style="width: 141px;">\
+ex_tbl_22: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -151,7 +162,7 @@ ex_taula_22: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_taula_33: '\<table style="width: 141px;">\
+ex_tbl_33: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -171,7 +182,7 @@ ex_taula_33: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_taula_33_img: '\<table style="width: 141px;">\
+ex_tbl_33_img: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><img src="https://img.icons8.com/color/120/000000/expired.png"></td>\n\
@@ -191,7 +202,7 @@ ex_taula_33_img: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_taula_13_img_link: '\<table style="width: 141px;">\
+ex_tbl_13_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
@@ -201,20 +212,22 @@ ex_taula_13_img_link: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_taula_22_img_link: '\<table style="width: 141px;">\
+ex_tbl_23_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
 <td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"></a></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"></a></td>\n\
 </tr>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/4-quality-education"><img src="https://img.icons8.com/color/120/000000/request-service.png"></a></td>\n\
 <td><a href="http://www.globalgoals.org/5-gender-equality"><img src="https://img.icons8.com/color/120/000000/communication.png"></a></td>\n\
+<td><a href="http://www.globalgoals.org/6-clean-water-and-sanitation"><img src="https://img.icons8.com/color/120/000000/documents.png"></a></td>\n\
 </tr>\n\
 </tbody>\n\
 </table>',
 
-ex_taula_33_img_link: '\<table style="width: 141px;">\
+ex_tbl_33_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
@@ -233,6 +246,98 @@ ex_taula_33_img_link: '\<table style="width: 141px;">\
 </tr>\n\
 </tbody>\n\
 </table>',
+
+ex_tbl_13_img_link_title: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
+ex_tbl_23_img_link_title: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/4-quality-education"><img src="https://img.icons8.com/color/120/000000/request-service.png"><h5>Títol 21</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/5-gender-equality"><img src="https://img.icons8.com/color/120/000000/communication.png"><h5>Títol 22</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/6-clean-water-and-sanitation"><img src="https://img.icons8.com/color/120/000000/documents.png"><h5>Títol 23</h5></a></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
+ex_tbl_33_img_link_title: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/4-quality-education"><img src="https://img.icons8.com/color/120/000000/request-service.png"></a><h5>Títol 21</h5></td>\n\
+<td><a href="http://www.globalgoals.org/5-gender-equality"><img src="https://img.icons8.com/color/120/000000/communication.png"><h5>Títol 22</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/6-clean-water-and-sanitation"><img src="https://img.icons8.com/color/120/000000/documents.png"><h5>Títol 23</h5></a></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/7-affordable-and-clean-energy"><img src="https://img.icons8.com/color/120/000000/planner.png"><h5>Títol 31</h5></a></td>\n\
+<td><a href="http://www.globalgoals.org/8-decent-work-and-economic-growth"><img src="https://img.icons8.com/color/120/000000/collaboration-female-male.png"></a><h5>Títol 32</h5></td>\n\
+<td><a href="http://www.globalgoals.org/9-industry-innovation-and-infrastructure"><img src="https://img.icons8.com/color/120/000000/high-priority.png"><h5>Títol 33</h5></a></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
+ex_tbl_13_img_link_title_desc: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
+
+ex_tbl_23_img_link_title_desc: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/4-quality-education"><img src="https://img.icons8.com/color/120/000000/request-service.png"><h5>Títol 21</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/5-gender-equality"><img src="https://img.icons8.com/color/120/000000/communication.png"><h5>Títol 22</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/6-clean-water-and-sanitation"><img src="https://img.icons8.com/color/120/000000/documents.png"><h5>Títol 23</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
+ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
+<tbody>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/2-zero-hunger"><img src="https://img.icons8.com/color/120/000000/leave.png"><h5>Títol 12</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/3-good-health-and-well-being"><img src="https://img.icons8.com/color/120/000000/task.png"><h5>Títol 13</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/4-quality-education"><img src="https://img.icons8.com/color/120/000000/request-service.png"><h5>Títol 21</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/5-gender-equality"><img src="https://img.icons8.com/color/120/000000/communication.png"><h5>Títol 22</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/6-clean-water-and-sanitation"><img src="https://img.icons8.com/color/120/000000/documents.png"><h5>Títol 23</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+<tr>\n\
+<td><a href="http://www.globalgoals.org/7-affordable-and-clean-energy"><img src="https://img.icons8.com/color/120/000000/planner.png"><h5>Títol 31</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/8-decent-work-and-economic-growth"><img src="https://img.icons8.com/color/120/000000/collaboration-female-male.png"><h5>Títol 32</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+<td><a href="http://www.globalgoals.org/9-industry-innovation-and-infrastructure"><img src="https://img.icons8.com/color/120/000000/high-priority.png"><h5>Títol 33</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
+</tr>\n\
+</tbody>\n\
+</table>',
+
             }
 
 
@@ -253,32 +358,49 @@ ex_taula_33_img_link: '\<table style="width: 141px;">\
                     var files = (this.taula_html.match(/<tr>/g) || []).length;
                     var columnes = (this.taula_html.match(/<td/g) || []).length;
                     columnes = columnes / files;
-                    large_size = 12 / columnes;
+                    var large_size = 12 / columnes;
 
                     if (this.taula_html != "" && Number.isInteger(large_size) == false) {
                         return '<h5 style="color:red">Error en el format de la taula</h5>';
                     }
 
-                    converted_table = this.taula_html.replace(/<table style="width: (.*)px;"><tbody>/gi,
+                    var converted_tbl = this.taula_html.replace(/<table style="width: (.*)px;"><tbody>/gi,
                         '');
-                    converted_table = converted_table.replace(/<table><tbody>/gi, '');
-                    converted_table = converted_table.replace(/<tr>/gi, '<div class="row">\n');
-                    converted_table = converted_table.replace(/<\/td>/gi, '<\/div>\n');
-                    converted_table = converted_table.replace(/<td style="width: (.*)px;">/gi,
-                        '<div class="small-12 large-' + large_size + ' columns">');
-                    converted_table = converted_table.replace(/<td>/gi,
-                        '<div class="small-12 large-' + large_size + ' columns">');
-                    converted_table = converted_table.replace(/<\/tr>/gi, '</div>\n');
-                    converted_table = converted_table.replace(/<\/tbody>/gi, '');
-                    converted_table = converted_table.replace(/<\/table>/gi, '');
+                    converted_tbl = converted_tbl.replace(/<table><tbody>/gi, '');
+                    converted_tbl = converted_tbl.replace(/<tr>/gi, '<div class="row">');
+                    converted_tbl = converted_tbl.replace(/<\/td>/gi, '\n<\/div>');
 
-                    return converted_table;
+                    converted_tbl = converted_tbl.replace(/<td style="width: (.*)px;">/gi,
+                        '\n<div class="small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
+                    converted_tbl = converted_tbl.replace(/<td>/gi,
+                        '\n<div class="small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
+                    converted_tbl = converted_tbl.replace(/<\/tr>/gi, '\n</div>\n');
+                    converted_tbl = converted_tbl.replace(/<\/tbody>/gi, '');
+                    converted_tbl = converted_tbl.replace(/<\/table>/gi, '');
+
+                    return converted_tbl;
 
                 },
                 codi_html_f6: function () {
-                    converted_table = this.codi_html.replace(/class="row"/gi, 'class="grid-x"');
-                    converted_table = converted_table.replace(/small-12/gi, 'cell small-12');
-                    return converted_table
+                    converted_tbl = this.codi_html.replace(/class="row"/gi, 'class="grid-x"');
+                    converted_tbl = converted_tbl.replace(/small-12/gi, 'cell small-12');
+                    converted_tbl = converted_tbl.replace(/columns/gi,this.centered_content + ' columns');
+                    converted_tbl = converted_tbl.replace(/columns">/gi,'columns" '+ this.with_border+">");
+                    return converted_tbl;
+                },
+                centered_content: function(){
+                    var ret='';
+                    if (this.centered){
+                        ret =  'text-center';
+                    } 
+                    return ret;
+                },
+                with_border: function(){
+                    var ret='';
+                    if (this.border){
+                        ret =  "style='border:1px solid #ddd;padding:1em'";
+                    } 
+                    return ret;
                 }
             }
         })
