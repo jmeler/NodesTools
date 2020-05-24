@@ -9,7 +9,13 @@ img.logo{
     padding:0;
     width:38px;
 }
-
+.card-divider {
+    /*background: #1887cc;
+    color:white;*/
+    background: white;
+    color:#000000;
+    border-bottom: 1px solid #e6e6e6;
+}
 
 .customizer {
     background-color: #f2f2f2;
