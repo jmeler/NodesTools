@@ -165,6 +165,12 @@
                         <h5>Mida del botó</h5>
                         <div id="radioGroup">
                             <div class="wrap">
+                                <input style="display:none" type="radio" name="mida" value="tiny" id="mida-t"
+                                    v-model="mida">
+                                <label for="mida-t"> Molt petit
+                                </label>
+                            </div>
+                            <div class="wrap">
                                 <input style="display:none" type="radio" name="mida" value="small" id="mida-s"
                                     v-model="mida">
                                 <label for="mida-s"> Petit
@@ -306,19 +312,20 @@
                 align: 'a-horizontal',
                 mida: "normal",
                 set_color: 'color1',
-                sel_palette: 'blaus',
-                colors: [{
-                        palette: {
-                            name: 'blaus',
-                            color1: '#0eb1ff',
-                            color2: '#087eb6'
-                        }
-                    },
+                sel_palette: 'blau-vermell',
+                colors: [
                     {
                         palette: {
                             name: 'blau-vermell',
                             color1: '#ff3257',
                             color2: '#4c86a6'
+                        }
+                    },
+                    {
+                        palette: {
+                            name: 'blaus',
+                            color1: '#0eb1ff',
+                            color2: '#087eb6'
                         }
                     },
                     {
@@ -1047,7 +1054,9 @@
                     return class_btn;
                 },
                 icon_style: function () {
+                    var class_icon = '';
                     switch (this.mida) {
+                        case 'tiny':
                         case 'small':
                             if (this.type == "only-icon") {
                                 class_icon = '';
