@@ -85,8 +85,7 @@
                           </select>
 
                         <input id="ck_centered" type="checkbox" v-model="centered"><label for="ck_centered">Contingut centrat</label>  
-                        <input id="ck_border" type="checkbox" v-model="border"><label for="ck_border">Amb vora</label>  
-
+                        
                         <button class="button primary " v-on:click="clean">Neteja</button>
 
                     </div> <!-- End Card Section-->
@@ -354,25 +353,24 @@ ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
             computed: {
                 codi_html: function () {
 
-                    var files = (this.taula_html.match(/<tr>/g) || []).length;
-                    var columnes = (this.taula_html.match(/<td/g) || []).length;
+                    var files = (this.taula_html.match(/<\s*tr[^>]*>/g) || []).length;
+                    var columnes = (this.taula_html.match(/<\s*td[^>]*>/g) || []).length;
                     columnes = columnes / files;
                     var large_size = 12 / columnes;
+
+                    console.log("files:"+files+",columnes:"+columnes+",size:"+large_size);
 
                     if (this.taula_html != "" && Number.isInteger(large_size) == false) {
                         return '<h5 style="color:red">Error en el format de la taula</h5>';
                     }
 
-                    var converted_tbl = this.taula_html.replace(/<table style="width: (.*)px;"><tbody>/gi,
-                        '');
-                    converted_tbl = converted_tbl.replace(/<table><tbody>/gi, '');
-                    converted_tbl = converted_tbl.replace(/<tr>/gi, '<div class="row">');
-                    converted_tbl = converted_tbl.replace(/<\/td>/gi, '\n<\/div>');
+                    var converted_tbl = this.taula_html.replace(/<table(.*)>/gi,'');
+                    converted_tbl = converted_tbl.replace(/<tbody>/gi, '');
 
-                    converted_tbl = converted_tbl.replace(/<td style="width: (.*)px;">/gi,
-                        '\n<div class="small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
-                    converted_tbl = converted_tbl.replace(/<td>/gi,
-                        '\n<div class="small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
+                    converted_tbl = converted_tbl.replace(/<\s*tr[^>]*>/gi, '<div class="row">');
+                    converted_tbl = converted_tbl.replace(/<\s*td[^>]*>/gi,
+                    '\n<div class="data-equalizer-watch small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
+                    converted_tbl = converted_tbl.replace(/<\/td>/gi, '\n<\/div>');
                     converted_tbl = converted_tbl.replace(/<\/tr>/gi, '\n</div>\n');
                     converted_tbl = converted_tbl.replace(/<\/tbody>/gi, '');
                     converted_tbl = converted_tbl.replace(/<\/table>/gi, '');
@@ -383,21 +381,12 @@ ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
                 codi_html_f6: function () {
                     converted_tbl = this.codi_html.replace(/class="row"/gi, 'class="grid-x"');
                     converted_tbl = converted_tbl.replace(/small-12/gi, 'cell small-12');
-                    converted_tbl = converted_tbl.replace(/columns/gi,this.centered_content + ' columns');
-                    converted_tbl = converted_tbl.replace(/columns">/gi,'columns" '+ this.with_border+">");
                     return converted_tbl;
                 },
                 centered_content: function(){
                     var ret='';
                     if (this.centered){
                         ret =  'text-center';
-                    } 
-                    return ret;
-                },
-                with_border: function(){
-                    var ret='';
-                    if (this.border){
-                        ret =  "style='border:1px solid #ddd;padding:1em'";
                     } 
                     return ret;
                 }
