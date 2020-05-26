@@ -140,8 +140,8 @@
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
-                                <label class="show-for-sr" for="codi_html"></label>
-                                <textarea class="ta-html" id="codi_html" v-model="codi_html">
+                                <label class="show-for-sr" for="codi-html"></label>
+                                <textarea class="ta-html" id="codi-html" v-model="codi_html">
                                 </textarea>
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
                             </div>
@@ -390,8 +390,6 @@
                     var columnes = (this.taula_html.match(/<\s*td[^>]*>/g) || []).length;
                     columnes = columnes / files;
                     var large_size = 12 / columnes;
-
-                    console.log("files:" + files + ",columnes:" + columnes + ",size:" + large_size);
 
                     if (this.taula_html != "" && Number.isInteger(large_size) == false) {
                         return '<h5 style="color:red">Error en el format de la taula</h5>';
