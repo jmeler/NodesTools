@@ -2,11 +2,24 @@
 <html class="no-js" lang="en">
 
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VKX674L4L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5VKX674L4L');
+    </script>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eines Nodes</title>
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel='stylesheet' href='styles.css' type='text/css' media='all' />
@@ -24,33 +37,33 @@
             <ul class="menu">
                 <li class="menu-text">
                     <img class="logo" src="images/nodes_small.png"> Caixa d'eines
-                </li>    
+                </li>
             </ul>
             <button class="menu-icon" type="button" data-toggle></button>
-          </div>
-          <div class="top-bar" id="top-menu">
+        </div>
+        <div class="top-bar" id="top-menu">
             <div class="top-bar-left">
-              <ul class="dropdown vertical medium-horizontal menu">
-                <li><img class="logo hide-for-small-only" src="images/nodes_small.png"></li>  
-                <li class="menu-text app-name-large  hide-for-small-only">Caixa d'eines</li>
-                <li><a href="index.html">Inici</a></li>
-                <li class="active"><a href="banner.html">Anuncis i avisos</a></li>
-                <li><a href="simple-button.html">Botó</a></li>
-                <li><a href="tables.html">Taules adaptatives</a></li>
-              </ul>
+                <ul class="dropdown vertical medium-horizontal menu">
+                    <li><img class="logo hide-for-small-only" src="images/nodes_small.png"></li>
+                    <li class="menu-text app-name-large  hide-for-small-only">Caixa d'eines</li>
+                    <li><a href="index.html">Inici</a></li>
+                    <li class="active"><a href="banner.html">Anuncis i avisos</a></li>
+                    <li><a href="simple-button.html">Botó</a></li>
+                    <li><a href="tables.html">Taules adaptatives</a></li>
+                </ul>
             </div>
             <div class="top-bar-right">
-              <ul class="dropdown vertical medium-horizontal menu">
-                <li><a target="_blank" href="https://agora.xtec.cat/nodes">Sobre NODES</a></li>
-              </ul>
+                <ul class="dropdown vertical medium-horizontal menu">
+                    <li><a target="_blank" href="https://agora.xtec.cat/nodes">Sobre NODES</a></li>
+                </ul>
             </div>
-          </div>
+        </div>
         <div class="main grid-x grid-margin-x grid-padding-x">
             <div class="cell medium-4 large-4">
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/1.png"/> Composició</h5>
+                        <h5><img src="images/1.png" /> Composició</h5>
                     </div>
 
                     <div class="card-section ">
@@ -58,7 +71,8 @@
                         <h5>Icona</h5>
                         <div id="radioGroup">
                             <div class="wrap" v-for="(item,index) in icones">
-                                <input style="display:none" type="radio" name="icona" :value="item.icona" :id="item.icona" v-model="icona">
+                                <input style="display:none" type="radio" name="icona" :value="item.icona"
+                                    :id="item.icona" v-model="icona">
                                 <label :for="item.icona"><img
                                         :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" /></label>
                             </div>
@@ -90,7 +104,7 @@
             <div class="cell medium-8 large-8">
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/2.png"/> Previsualització </h5>
+                        <h5><img src="images/2.png" /> Previsualització </h5>
                     </div>
 
                     <div class="card-section">
@@ -111,7 +125,7 @@
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/3.png"/> Codi HTML </h5>
+                        <h5><img src="images/3.png" /> Codi HTML </h5>
                     </div>
 
                     <div class="card-section">
@@ -131,8 +145,8 @@
                                         </div>
                                     </div>
                                     </textarea>
-                                    <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
-                                    
+                                <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
+
                             </div>
                         </div>
                     </div>
@@ -147,13 +161,13 @@
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 
-        <script>
-            $(document).ready(function(){
-     
-     $(document).foundation();
-     
-     });
-         </script>
+    <script>
+        $(document).ready(function () {
+
+            $(document).foundation();
+
+        });
+    </script>
 
     <script>
         var app = new Vue({
@@ -165,8 +179,7 @@
                 contingut: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas mauris justo, in aliquet tellus euismod id. Vestibulum vitae libero non orci aliquam finibus. In metus risus, egestas ac nibh in, molestie ultrices ex. Donec quis purus sed felis rutrum semper. Pellentesque fringilla auctor massa, eu venenatis sapien volutpat at. ',
                 more_text: '',
                 more_link: '',
-                icones: [
-                    {
+                icones: [{
                         icona: 'expired'
                     },
                     {
@@ -238,7 +251,7 @@
                     {
                         icona: 'collectibles'
                     },
-                    
+
                 ]
             }
         })
