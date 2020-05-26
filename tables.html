@@ -14,10 +14,9 @@
     <style>
         #preview .grid-x div {
             padding: 0.3em;
-            /*border: 1px solid #ddd;*/
         }
-        .button{
-            margin:0.1;
+        .button {
+            margin: 0.1;
         }
     </style>
 
@@ -31,36 +30,45 @@
 <body>
 
     <div id="app">
-        <div class="top-bar">
+
+        <div class="title-bar" data-responsive-toggle="top-menu"> 
+            <ul class="menu">
+                <li class="menu-text">
+                    <img class="logo" src="images/nodes_small.png">   Caixa d'eines
+                </li>    
+            </ul>
+            <button class="menu-icon" type="button" data-toggle></button>
+          </div>
+          <div class="top-bar" id="top-menu">
             <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li><img class="logo" src="images/nodes_small.png"></li>
-                    <li class="menu-text">Eines NODES</li>
-                    <li><a href="index.html">Inici</a></li>
-                    <li><a href="banner.html">Avisos i anuncis</a></li>
-                    <li><a href="simple-button.html">Botó</a></li>
-                    <li class="active"><a href="tables.html">Taules adaptatives</a></li>
-                </ul>
+              <ul class="dropdown vertical medium-horizontal menu">
+                <li><img class="logo hide-for-small-only" src="images/nodes_small.png"></li>  
+                <li class="menu-text hide-for-small-only">Caixa d'eines</li>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="banner.html">Anuncis i avisos</a></li>
+                <li><a href="simple-button.html">Botó</a></li>
+                <li class="active"><a href="tables.html">Taules adaptatives</a></li>
+              </ul>
             </div>
             <div class="top-bar-right">
-                <ul class="menu">
-                    <li><a target="_blank" href="https://agora.xtec.cat/nodes">Sobre NODES</a></li>
-                </ul>
+              <ul class="dropdown vertical medium-horizontal menu">
+                <li><a target="_blank" href="https://agora.xtec.cat/nodes">Sobre NODES</a></li>
+              </ul>
             </div>
-        </div>
+          </div>
 
-        <br>
 
         <div class="main grid-x grid-margin-x grid-padding-x">
             <div class="cell medium-4 large-4">
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/1.png"/> Codi HTML de la taula</h5>
+                        <h5><img src="images/1.png" /> Codi HTML de la taula</h5>
                     </div>
 
                     <div class="card-section ">
-                        <p>Crea una taula dins d'un article o pàgina NODES, canvia a la pestanya "text" i copia el contingut des de <code>&#60;table></code>
+                        <p>Crea una taula dins d'un article o pàgina NODES, canvia a la pestanya "text" i copia el
+                            contingut des de <code>&#60;table></code>
                             fins a <code>&#60/table></code>. Enganxa el codi copiat aquí:</p>
 
                         <textarea class="ta-html" id="taula_html" name="taula_html" v-model="taula_html">
@@ -79,13 +87,17 @@
                             <option value="ex_tbl_13_img_link_title">Imatges amb enllaç i títol (1x3)</option>
                             <option value="ex_tbl_23_img_link_title">Imatges amb enllaç i títol (2x3)</option>
                             <option value="ex_tbl_33_img_link_title">Imatges amb enllaç i títol (3x3)</option>
-                            <option value="ex_tbl_13_img_link_title_desc">Imatges amb enllaç, títol i descripció (1x3)</option>
-                            <option value="ex_tbl_23_img_link_title_desc">Imatges amb enllaç, títol i descripció (2x3)</option>
-                            <option value="ex_tbl_33_img_link_title_desc">Imatges amb enllaç, títol i descripció (3x3)</option>
-                          </select>
+                            <option value="ex_tbl_13_img_link_title_desc">Imatges amb enllaç, títol i descripció (1x3)
+                            </option>
+                            <option value="ex_tbl_23_img_link_title_desc">Imatges amb enllaç, títol i descripció (2x3)
+                            </option>
+                            <option value="ex_tbl_33_img_link_title_desc">Imatges amb enllaç, títol i descripció (3x3)
+                            </option>
+                        </select>
 
-                        <input id="ck_centered" type="checkbox" v-model="centered"><label for="ck_centered">Contingut centrat</label>  
-                        
+                        <input id="ck_centered" type="checkbox" v-model="centered"><label for="ck_centered">Contingut
+                            centrat</label>
+
                         <button class="button primary " v-on:click="clean">Neteja</button>
 
                     </div> <!-- End Card Section-->
@@ -95,7 +107,7 @@
             <div class="cell medium-8 large-8">
                 <div class="card" id="preview">
                     <div class="card-divider">
-                        <h5><img src="images/2.png"/> Previsualització </h5>
+                        <h5><img src="images/2.png" /> Previsualització </h5>
                     </div>
 
                     <div class="card-section">
@@ -105,7 +117,7 @@
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/3.png"/> Codi HTML </h5>
+                        <h5><img src="images/3.png" /> Codi HTML </h5>
                     </div>
                     <div class="card-section">
                         <div class="grid-x">
@@ -126,7 +138,9 @@
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 
     <script>
-        $(document).foundation();
+        $(document).ready(function () {
+            $(document).foundation();
+        });
     </script>
 
     <script>
@@ -134,11 +148,11 @@
             el: '#app',
             data: {
                 taula_html: '',
-                taula_exemple:'33',
-                centered:true,
-                border:false,
-                exemples:{
-ex_tbl_13: '\<table style="width: 141px;">\
+                taula_exemple: '33',
+                centered: true,
+                border: false,
+                exemples: {
+                    ex_tbl_13: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -147,7 +161,7 @@ ex_tbl_13: '\<table style="width: 141px;">\
 </tr>\n\
 </tbody>\n\
 </table>',
-ex_tbl_22: '\<table style="width: 141px;">\
+                    ex_tbl_22: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -160,7 +174,7 @@ ex_tbl_22: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_33: '\<table style="width: 141px;">\
+                    ex_tbl_33: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td>Contingut Fila 1, Columna 1</td>\n\
@@ -180,7 +194,7 @@ ex_tbl_33: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_33_img: '\<table style="width: 141px;">\
+                    ex_tbl_33_img: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><img src="https://img.icons8.com/color/120/000000/expired.png"></td>\n\
@@ -200,7 +214,7 @@ ex_tbl_33_img: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_13_img_link: '\<table style="width: 141px;">\
+                    ex_tbl_13_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
@@ -210,7 +224,7 @@ ex_tbl_13_img_link: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_23_img_link: '\<table style="width: 141px;">\
+                    ex_tbl_23_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
@@ -225,7 +239,7 @@ ex_tbl_23_img_link: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_33_img_link: '\<table style="width: 141px;">\
+                    ex_tbl_33_img_link: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"></a></td>\n\
@@ -245,7 +259,7 @@ ex_tbl_33_img_link: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_13_img_link_title: '\<table style="width: 141px;">\
+                    ex_tbl_13_img_link_title: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
@@ -255,7 +269,7 @@ ex_tbl_13_img_link_title: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_23_img_link_title: '\<table style="width: 141px;">\
+                    ex_tbl_23_img_link_title: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
@@ -270,7 +284,7 @@ ex_tbl_23_img_link_title: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_33_img_link_title: '\<table style="width: 141px;">\
+                    ex_tbl_33_img_link_title: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a></td>\n\
@@ -290,7 +304,7 @@ ex_tbl_33_img_link_title: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_13_img_link_title_desc: '\<table style="width: 141px;">\
+                    ex_tbl_13_img_link_title_desc: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
@@ -301,7 +315,7 @@ ex_tbl_13_img_link_title_desc: '\<table style="width: 141px;">\
 </table>',
 
 
-ex_tbl_23_img_link_title_desc: '\<table style="width: 141px;">\
+                    ex_tbl_23_img_link_title_desc: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
@@ -316,7 +330,7 @@ ex_tbl_23_img_link_title_desc: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
+                    ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
 <tbody>\n\
 <tr>\n\
 <td><a href="http://www.globalgoals.org/1-no-poverty"><img src="https://img.icons8.com/color/120/000000/expired.png"><h5>Títol 11</h5></a><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt quam eu risus hendrerit finibus. Nam accumsan semper euismod. Sed eu justo erat. </p></td>\n\
@@ -336,14 +350,14 @@ ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
 </tbody>\n\
 </table>',
 
-            }
+                }
 
 
             },
             methods: {
 
                 clean: function (event) {
-                    this.taula_html="";
+                    this.taula_html = "";
                 },
                 select_taula_ex(event) {
                     this.taula_html = this.exemples[event.target.value];
@@ -358,18 +372,19 @@ ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
                     columnes = columnes / files;
                     var large_size = 12 / columnes;
 
-                    console.log("files:"+files+",columnes:"+columnes+",size:"+large_size);
+                    console.log("files:" + files + ",columnes:" + columnes + ",size:" + large_size);
 
                     if (this.taula_html != "" && Number.isInteger(large_size) == false) {
                         return '<h5 style="color:red">Error en el format de la taula</h5>';
                     }
 
-                    var converted_tbl = this.taula_html.replace(/<table(.*)>/gi,'');
+                    var converted_tbl = this.taula_html.replace(/<table(.*)>/gi, '');
                     converted_tbl = converted_tbl.replace(/<tbody>/gi, '');
 
                     converted_tbl = converted_tbl.replace(/<\s*tr[^>]*>/gi, '<div class="row">');
                     converted_tbl = converted_tbl.replace(/<\s*td[^>]*>/gi,
-                    '\n<div class="data-equalizer-watch small-12 large-' + large_size + ' ' + this.centered_content + ' columns" '+this.with_border+'>\n');
+                        '\n<div class="small-12 large-' + large_size + ' ' + this.centered_content +
+                        ' columns" ' + this.with_border + '>\n');
                     converted_tbl = converted_tbl.replace(/<\/td>/gi, '\n<\/div>');
                     converted_tbl = converted_tbl.replace(/<\/tr>/gi, '\n</div>\n');
                     converted_tbl = converted_tbl.replace(/<\/tbody>/gi, '');
@@ -383,11 +398,11 @@ ex_tbl_33_img_link_title_desc: '\<table style="width: 141px;">\
                     converted_tbl = converted_tbl.replace(/small-12/gi, 'cell small-12');
                     return converted_tbl;
                 },
-                centered_content: function(){
-                    var ret='';
-                    if (this.centered){
-                        ret =  'text-center';
-                    } 
+                centered_content: function () {
+                    var ret = '';
+                    if (this.centered) {
+                        ret = 'text-center';
+                    }
                     return ret;
                 }
             }

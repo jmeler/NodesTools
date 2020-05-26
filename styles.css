@@ -5,8 +5,6 @@
 }
 
 img.logo{
-    margin:0;
-    padding:0;
     width:38px;
 }
 .card-divider {
@@ -67,13 +65,22 @@ img.logo{
     color: #a3a3a3;
 }
 
+/* TOP BAR */
 .top-bar, .top-bar ul {
     background-color: #000000;
-    padding: 0;
 }
 
-.menu-text{
-    color:white !important;
+.menu .menu-text {
+    padding: .35rem 1rem;
+    font-weight: inherit;
+    line-height: 1;
+    color: white;
+    font-size:1.5em;
+}
+
+.menu .active>a {
+    background: inherit;
+    border: 1px solid #ffffff;
 }
 
 .top-bar a{
@@ -90,6 +97,16 @@ div.color{
     height:2em;
     float: left;
 }
+
+
+
+  /* some drilldown styling */
+  
+  .is-drilldown {
+    width: auto !important;
+  }
+
+
 
 .icons {
     padding: 5px;
@@ -143,4 +160,5 @@ div.color{
        border-color: #000;
      }
   }
+  
   
