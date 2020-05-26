@@ -86,13 +86,14 @@
                         <p>Crea una taula dins d'un article o pàgina NODES, canvia a la pestanya "text" i copia el
                             contingut des de <code>&#60;table></code>
                             fins a <code>&#60/table></code>. Enganxa el codi copiat aquí:</p>
-
-
+                        
+                        <label class="show-for-sr" for="taula_html"></label>
                         <textarea class="ta-html" id="taula_html" name="taula_html" v-model="taula_html">
                         </textarea>
-                        <label for="taula_html"></label>
 
                         <p>O selecciona algun dels següents exemples:</p>
+
+                        <label class="show-for-sr" for="taula_exemple"></label>
                         <select id="taula_exemple" v-model="taula_exemple" @change="select_taula_ex($event)">
                             <option value="ex_tbl_13">1x3</option>
                             <option value="ex_tbl_22">2x2</option>
@@ -111,7 +112,6 @@
                             <option value="ex_tbl_33_img_link_title_desc">Imatges amb enllaç, títol i descripció (3x3)
                             </option>
                         </select>
-                        <label for="taula_exemple"></label>
 
                         <input id="ck_centered" type="checkbox" v-model="centered"><label for="ck_centered">Contingut
                             centrat</label>
@@ -140,10 +140,10 @@
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
-                                <textarea class="ta-html" id="codi-html" v-model="codi_html">
+                                <label class="show-for-sr" for="codi_html"></label>
+                                <textarea class="ta-html" id="codi_html" v-model="codi_html">
                                 </textarea>
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
-                                <label for="codi_html"></label>
                             </div>
                         </div>
                     </div>
