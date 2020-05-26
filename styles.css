@@ -108,13 +108,17 @@ div.color{
 }
 
 
+.grid-padding-x>.cell {
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
 
-  /* some drilldown styling */
-  
-  .is-drilldown {
-    width: auto !important;
-  }
+.grid-margin-x>.cell {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
 
+/*------*/
 
 
 .icons {
