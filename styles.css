@@ -28,21 +28,20 @@ img.logo{
     background-color: #f2f2f2;
 }
 
-#radioGroup {
+.radioGroup {
     margin-bottom: 1em;
 }
 
-#radioGroup .wrap {
+.radioGroup .wrap {
     display: inline-block;
 }
 
-#radioGroup label {
-    display: block;
+.radioGroup label {
     text-align: center;
     margin: 0 0.2em;
 }
 
-#radioGroup input[type="radio"] {
+.radioGroup input[type="radio"] {
     display: block;
     margin: 0.5em auto;
 }

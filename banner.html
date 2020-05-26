@@ -18,6 +18,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="Eina de creació d'avisos i anuncis per NODES">
     <title>Eines Nodes</title>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
@@ -54,7 +55,8 @@
             </div>
             <div class="top-bar-right">
                 <ul class="dropdown vertical medium-horizontal menu">
-                    <li><a target="_blank" href="https://agora.xtec.cat/nodes">Sobre NODES</a></li>
+                    <li><a target="_blank" href="https://agora.xtec.cat/nodes" rel="noreferrer noopener">Sobre NODES</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -63,35 +65,44 @@
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/1.png" alt="1"/> Composició</h5>
+                        <h5><img src="images/1.png" alt="1" /> Composició</h5>
                     </div>
 
                     <div class="card-section ">
 
                         <h5>Icona</h5>
-                        <div id="radioGroup">
+                        <div class="radioGroup">
                             <div class="wrap" v-for="(item,index) in icones">
                                 <input style="display:none" type="radio" name="icona" :value="item.icona"
                                     :id="item.icona" v-model="icona">
                                 <label :for="item.icona"><img
-                                        :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" :alt="item.icona"/></label>
+                                        :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'"
+                                        :alt="item.icona" /></label>
                             </div>
                         </div>
-                        <p>Mida</p>
-                        <input class="input-nt-mida" v-model="mida_icona">
+                        <label for="input-nt-mid">Mida</label>
+                        <input id="input-nt-mid" class="input-nt-mida" v-model="mida_icona">
+
                         <br><br>
 
                         <h5>Títol</h5>
-                        <input class="input-nt-full" v-model="titol">
+                            <input id="title" class="input-nt-full" v-model="titol">
+                            <label for="title"></label>
+                        
 
                         <br><br>
                         <h5>Contingut</h5>
-                        <textarea class="ta-contingut" v-model="contingut"></textarea>
+                            <textarea id="ta-contingut" class="ta-contingut" v-model="contingut"></textarea>
+                            <label for="ta-contingut"></label>
+                        
                         <h5>Text de l'enllaç</h5>
-                        <input class="input-nt-full" v-model="more_text">
-                        <br><br>
+                            <input id="more_text" class="input-nt-full" v-model="more_text">
+                            <label for="more_text"></label>
+                    
                         <h5>Enllaç</h5>
-                        <input class="input-nt-full" v-model="more_link">
+                            <input class="input-nt-full" v-model="more_link">
+                            <label for="more_link"></label>
+                        
                         <br><br>
 
 
@@ -104,13 +115,14 @@
             <div class="cell medium-8 large-8">
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/2.png" alt="2"/> Previsualització </h5>
+                        <h5><img src="images/2.png" alt="2" /> Previsualització </h5>
                     </div>
 
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-2">
-                                <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'" :alt="icona"/>
+                                <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'"
+                                    :alt="icona" />
                             </div>
                             <div class="columns cell small-12 large-10">
                                 <h3>{{titol}}</h3>
@@ -125,12 +137,13 @@
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/3.png" /> Codi HTML </h5>
+                        <h5><img src="images/3.png" alt="3" /> Codi HTML </h5>
                     </div>
 
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
+                                
                                 <textarea class="ta-html" id="codi-html">
                                     <div class="row">
                                         <div class="columns small-12 large-2">
@@ -145,8 +158,9 @@
                                         </div>
                                     </div>
                                     </textarea>
+                                    
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
-
+                                <label for="codi-html"></label>
                             </div>
                         </div>
                     </div>
