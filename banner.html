@@ -36,7 +36,7 @@
         <div class="title-bar" data-responsive-toggle="top-menu">
             <ul class="menu">
                 <li class="menu-text">
-                    <img class="logo" src="images/nodes_small.png"> Caixa d'eines
+                    <img class="logo" src="images/nodes_small.png" alt="logo de nodes"> Caixa d'eines
                 </li>
             </ul>
             <button class="menu-icon" type="button" data-toggle></button>
@@ -44,7 +44,7 @@
         <div class="top-bar" id="top-menu">
             <div class="top-bar-left">
                 <ul class="dropdown vertical medium-horizontal menu">
-                    <li><img class="logo hide-for-small-only" src="images/nodes_small.png"></li>
+                    <li><img class="logo hide-for-small-only" src="images/nodes_small.png" alt="logo de nodes"></li>
                     <li class="menu-text app-name-large  hide-for-small-only">Caixa d'eines</li>
                     <li><a href="index.html">Inici</a></li>
                     <li class="active"><a href="banner.html">Anuncis i avisos</a></li>
@@ -63,7 +63,7 @@
 
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/1.png" /> Composició</h5>
+                        <h5><img src="images/1.png" alt="1"/> Composició</h5>
                     </div>
 
                     <div class="card-section ">
@@ -74,7 +74,7 @@
                                 <input style="display:none" type="radio" name="icona" :value="item.icona"
                                     :id="item.icona" v-model="icona">
                                 <label :for="item.icona"><img
-                                        :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" /></label>
+                                        :src="'https://img.icons8.com/color/30/000000/' + item.icona +'.png'" :alt="item.icona"/></label>
                             </div>
                         </div>
                         <p>Mida</p>
@@ -104,13 +104,13 @@
             <div class="cell medium-8 large-8">
                 <div class="card">
                     <div class="card-divider">
-                        <h5><img src="images/2.png" /> Previsualització </h5>
+                        <h5><img src="images/2.png" alt="2"/> Previsualització </h5>
                     </div>
 
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-2">
-                                <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'" />
+                                <img :src="'https://img.icons8.com/color/'+ mida_icona+ '/000000/'+icona+'.png'" :alt="icona"/>
                             </div>
                             <div class="columns cell small-12 large-10">
                                 <h3>{{titol}}</h3>
@@ -134,7 +134,7 @@
                                 <textarea class="ta-html" id="codi-html">
                                     <div class="row">
                                         <div class="columns small-12 large-2">
-                                        <img src="https://img.icons8.com/color/{{mida_icona}}/000000/{{icona}}.png" />
+                                        <img src="https://img.icons8.com/color/{{mida_icona}}/000000/{{icona}}.png" :alt="icona"/>
                                         </div>
                                         <div class="columns small-12 large-10">
                                           <h2>{{titol}}</h2>

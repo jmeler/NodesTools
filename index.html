@@ -36,7 +36,7 @@
         <div class="title-bar" data-responsive-toggle="top-menu">
             <ul class="menu">
                 <li class="menu-text">
-                    <img class="logo" src="images/nodes_small.png"> Caixa d'eines
+                    <img class="logo" src="images/nodes_small.png" alt="logo de nodes"> Caixa d'eines
                 </li>
             </ul>
             <button class="menu-icon" type="button" data-toggle></button>
@@ -44,7 +44,7 @@
         <div class="top-bar" id="top-menu">
             <div class="top-bar-left">
                 <ul class="dropdown vertical medium-horizontal menu">
-                    <li><img class="logo hide-for-small-only" src="images/nodes_small.png"></li>
+                    <li><img class="logo hide-for-small-only" src="images/nodes_small.png" alt="logo de nodes"></li>
                     <li class="menu-text app-name-large hide-for-small-only">Caixa d'eines</li>
                     <li class="active"><a href="index.html">Inici</a></li>
                     <li><a href="banner.html">Anuncis i avisos</a></li>
@@ -67,7 +67,7 @@
                     <div class="card-divider">
                         <h5>{{item.title}}</h5>
                     </div>
-                    <img :src="item.img">
+                    <img :src="item.img" :alt="item.title">
                     <div class="card-section ">
                         <p>{{item.description}}</p>
                         <div style="text-align:right"><a class="button primary" :href="item.href">Som-hi!</a></div>
