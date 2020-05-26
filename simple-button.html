@@ -242,13 +242,11 @@
                             <div class="radioGroup">
                                 <div class="wrap">
                                     <input type="radio" name="mida" value="a-horizontal" id="a-h" v-model="align">
-                                    <label for="a-h"> Horitzontal
-                                    </label>
+                                    <label for="a-h"> Horitzontal</label>
                                 </div>
                                 <div class="wrap">
                                     <input type="radio" name="mida" value="a-vertical" id="a-v" v-model="align">
-                                    <label for="a-v"> Vertical
-                                    </label>
+                                    <label for="a-v"> Vertical</label>
                                 </div>
                             </div>
                         </div>
@@ -289,7 +287,7 @@
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
-
+                                <label class="show-for-sr" for="codi_html"></label>
                                 <textarea v-if="type=='only-text'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer">{{btn_text}}</a>
                                 </textarea>
 
@@ -300,7 +298,7 @@
                                 </textarea>
 
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
-                                <label for="codi_html"></label>
+                                
                             </div>
                         </div>
                     </div>
@@ -317,9 +315,7 @@
 
     <script>
         $(document).ready(function () {
-
             $(document).foundation();
-
         });
     </script>
 

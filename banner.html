@@ -86,25 +86,22 @@
                         <br><br>
 
                         <h5>Títol</h5>
+                            <label for="title" class="show-for-sr"></label>
                             <input id="title" class="input-nt-full" v-model="titol">
-                            <label for="title"></label>
-                        
-
-                        <br><br>
+                
                         <h5>Contingut</h5>
                             <textarea id="ta-contingut" class="ta-contingut" v-model="contingut"></textarea>
-                            <label for="ta-contingut"></label>
+                            <label for="ta-contingut" class="show-for-sr"></label>
                         
                         <h5>Text de l'enllaç</h5>
                             <input id="more_text" class="input-nt-full" v-model="more_text">
-                            <label for="more_text"></label>
-                    
+                            <label class="show-for-sr" for="more_text" ></label>
+                            
+                           
                         <h5>Enllaç</h5>
                             <input class="input-nt-full" v-model="more_link">
-                            <label for="more_link"></label>
-                        
-                        <br><br>
-
+                            <label class="show-for-sr" for="more_link"></label>
+                            
 
                     </div> <!-- End Card Section-->
                 </div>
@@ -143,7 +140,8 @@
                     <div class="card-section">
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
-                                
+
+                                <label class="show-for-sr" for="codi-html"></label>
                                 <textarea class="ta-html" id="codi-html">
                                     <div class="row">
                                         <div class="columns small-12 large-2">
@@ -160,7 +158,7 @@
                                     </textarea>
                                     
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
-                                <label for="codi-html"></label>
+                                
                             </div>
                         </div>
                     </div>
@@ -177,9 +175,7 @@
 
     <script>
         $(document).ready(function () {
-
             $(document).foundation();
-
         });
     </script>
 
