@@ -7,6 +7,15 @@
 img.logo{
     width:38px;
 }
+
+.top-bar img.logo {
+    margin-left: 1em;
+}
+
+.app-name-large {
+    margin-right:2em;
+}
+
 .card-divider {
     /*background: #1887cc;
     color:white;*/
