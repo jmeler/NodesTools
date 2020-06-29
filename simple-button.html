@@ -141,14 +141,14 @@
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color1w" id="color-1w" v-model="set_color">
                                 <label for="color-1w">
-                                    <div class="color" :style="'background-color:white;border:4px solid '+color1+';'">
+                                    <div class="color" :style="'background-color:transparent;border:4px solid '+color1+';'">
                                     </div>
                                 </label>
                             </div>
                             <div class="wrap">
                                 <input type="radio" name="set_color" value="color2w" id="color-2w" v-model="set_color">
                                 <label for="color-2w">
-                                    <div class="color" :style="'background-color:white;border:4px solid '+color2+';'">
+                                    <div class="color" :style="'background-color:transparent;border:4px solid '+color2+';'">
                                     </div>
                                 </label>
                             </div>
@@ -226,6 +226,10 @@
                                 </ul>
                             </fieldset>
                         </div>
+                       
+                        <h5>Amplada del botó (px)</h5>
+                        <input id="btn_width" class="input-nt-full" v-model="btn_width" placeholder="Automàtica">
+                        <label for="btn_width"></label>
 
                         <div v-if="type!='only-icon'">
                             <h5>Text del botó</h5>
@@ -326,6 +330,7 @@
                 mida_icona: 120,
                 type: 'only-text',
                 btn_text: 'Text del botó',
+                btn_width:'',
                 btn_url: 'https://',
                 btn_icona: 'admin-site',
                 align: 'a-horizontal',
@@ -1030,7 +1035,12 @@
                 },
                 btn_style: function () {
 
-                    class_btn = 'padding:1em;font-weight: 400;margin:0.1em;';
+                    class_btn ="";
+                    if (this.btn_width!=''){
+                        class_btn ="width:"+this.btn_width+"px;";
+                    }
+
+                    class_btn = class_btn + 'padding:1em;font-weight: 400;margin:0.1em;';
 
                     switch (this.set_color) {
 
@@ -1057,11 +1067,11 @@
                             class_btn = class_btn + 'color:white !important;background-color:#9e9e9e';
                             break;
                         case 'color1w':
-                            class_btn = class_btn + 'background-color:white;border:1px solid ' + this
+                            class_btn = class_btn + 'background-color:transparent;border:1px solid ' + this
                                 .color1 + ';color:' + this.color1;
                             break;
                         case 'color2w':
-                            class_btn = class_btn + 'background-color:white;border:1px solid' + this
+                            class_btn = class_btn + 'background-color:transparent;border:1px solid' + this
                                 .color2 + ';color:' + this.color2;
                             break;
                         default:
