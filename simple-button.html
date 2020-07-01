@@ -152,7 +152,6 @@
                                     </div>
                                 </label>
                             </div>
-
                         </div>
 
                         <h5>Contingut</h5>
@@ -238,6 +237,7 @@
                             <h5>Enllaç</h5>
                             <input id="btn_url" class="input-nt-full" v-model="btn_url">
                             <label for="btn_url"></label>
+                            <input id="cb_newtab" type="checkbox" v-model="new_tab"><label for="cb_newtab">Obre l'enllaç en una pestanya nova</label>
                             <br><br>
                         </div>
 
@@ -269,14 +269,14 @@
 
                     <div class="card-section">
                         <div class="grid-x">
-                            <a v-if="type=='only-text'" :class="'button '+mida" :href="btn_url" target="_blank"
+                            <a v-if="type=='only-text'" :class="'button '+mida" :href="btn_url" 
                                 rel="noopener noreferrer" :style="btn_style">{{btn_text}}</a>
 
-                            <a v-if="type=='only-icon'" :class="'button '+mida" :href="btn_url" target="_blank"
+                            <a v-if="type=='only-icon'" :class="'button '+mida" :href="btn_url" 
                                 rel="noopener noreferrer" :style="btn_style"><span :style="icon_style"
                                     :class="'dashicons dashicons-'+btn_icona"></span></a>
 
-                            <a v-if="type=='text-icon'" :class="'button '+mida" :href="btn_url" target="_blank"
+                            <a v-if="type=='text-icon'" :class="'button '+mida" :href="btn_url" 
                                 rel="noopener noreferrer" :style="btn_style"><span :style="icon_style"
                                     :class="'dashicons dashicons-'+btn_icona"></span>{{btn_text}}</a>
                         </div>
@@ -292,13 +292,13 @@
                         <div class="grid-x">
                             <div class="columns cell small-12 large-12">
                                 <label class="show-for-sr" for="codi_html"></label>
-                                <textarea v-if="type=='only-text'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer">{{btn_text}}</a>
+                                <textarea v-if="type=='only-text'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" {{target}} rel="noopener noreferrer">{{btn_text}}</a>
                                 </textarea>
 
-                                <textarea v-if="type=='text-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" href="{{btn_url}}" style="{{btn_style}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span>{{btn_text}}</a>
+                                <textarea v-if="type=='text-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" href="{{btn_url}}" style="{{btn_style}}" {{target}} rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span>{{btn_text}}</a>
                                 </textarea>
 
-                                <textarea v-if="type=='only-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" target="_blank" rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span></a>
+                                <textarea v-if="type=='only-icon'" class="ta-html" id="codi-html"><a class="button {{mida}}" style="{{btn_style}}" href="{{btn_url}}" {{target}} rel="noopener noreferrer"><span style="{{icon_style}}" class="dashicons dashicons-{{btn_icona}}"></span></a>
                                 </textarea>
 
                                 <button class="button primary" onclick="copyCode()">Copia Codi HTML</button>
@@ -334,7 +334,8 @@
                 btn_url: 'https://',
                 btn_icona: 'admin-site',
                 align: 'a-horizontal',
-                mida: "normal",
+                mida: 'normal',
+                new_tab: false,
                 set_color: 'color1',
                 sel_palette: 'blau-vermell',
                 colors: [{
@@ -1002,6 +1003,7 @@
                 ]
             },
             computed: {
+                
                 color1: function () {
                     var color = "";
                     this.colors.forEach(function (element) {
@@ -1109,6 +1111,13 @@
                             break;
                     }
                     return class_icon;
+                },
+                target: function (){
+                    if (this.new_tab){
+                        return "target='_blank'";
+                    } else {
+                        return "";
+                    }
                 }
             }
         })
